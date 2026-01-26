@@ -19,7 +19,7 @@ public class Week1Controller {
     }
 
     @GetMapping("/hello")
-    public String sayHello(@RequestParam String location, String name) {
+    public String sayHello(@RequestParam(required = false, defaultValue = "Moon") String location, String name) {
         return "Welcome to the " + location + " " + name;
     }
 
