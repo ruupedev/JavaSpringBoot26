@@ -43,8 +43,14 @@ public class BookController {
         return "/addbook";
     }
 
-    @PostMapping("/newbook")
-    public String postMethodName(Book book) {
+    @GetMapping("/edit/{id}")
+    public String editpage(Model model, @PathVariable Long id) {
+        model.addAttribute("book", bookRepository.findById(id));
+        return "edit";
+    }
+
+    @PostMapping("/savebook")
+    public String saveBook(Book book) {
         bookRepository.save(book);
         return "redirect:/booklist";
     }
