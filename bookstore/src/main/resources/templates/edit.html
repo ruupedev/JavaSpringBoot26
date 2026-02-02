@@ -14,12 +14,14 @@
 
     <form th:action="@{/savebook}" th:object="${book}" method="post">
 
-        <td>ID: <input type="text" placeholder="${book.id}" th:field="*{id}"></td><br />
+
         <td>Author: <input type="text" placeholder="${book.author}" th:field="*{author}"></td><br />
         <td>Title: <input type="text" placeholder="${book.title}" th:field="*{title}"></td><br />
         <td>ISBN: <input type="text" placeholder="${book.isbn}" th:field="*{isbn}"></td><br />
         <td>Year: <input type="text" placeholder="${book.publicationYear}" th:field="*{publicationYear}"></td><br />
         <td>Price: <input type="text" placeholder="${book.price}" th:field="*{price}"></td>
+
+        <td><input type="hidden" placeholder="${book.id}" th:field="*{id}"></td><br />
 
         <br />
 
