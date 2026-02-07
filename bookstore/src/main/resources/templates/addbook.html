@@ -18,7 +18,13 @@
         <td>Title: <input type="text" th:field="*{title}"></td><br />
         <td>ISBN: <input type="text" th:field="*{isbn}"></td><br />
         <td>Year: <input type="text" th:field="*{publicationYear}"></td><br />
-        <td>Price: <input type="text" th:field="*{price}"></td>
+        <td>Price: <input type="text" th:field="*{price}"></td><br />
+
+
+        <td>Category: <select th:field="*{category}">
+                <option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}">
+                </option>
+            </select></td><br />
 
 
         <button type="submit" class="btn btn-success">Submit book</button>
