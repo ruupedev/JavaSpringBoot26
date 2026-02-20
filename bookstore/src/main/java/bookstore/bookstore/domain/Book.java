@@ -1,5 +1,7 @@
 package bookstore.bookstore.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -14,6 +16,7 @@ public class Book {
     private String isbn;
     private Double price;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "categoryid")
     private Category category;
