@@ -26,6 +26,11 @@ public class BookController {
         return "index";
     }
 
+    @GetMapping("/login")
+    public String getLogin() {
+        return "login";
+    }
+
     @GetMapping("/booklist")
     public String getBooklist(Model model) {
         model.addAttribute("books", bookRepository.findAll());
