@@ -19,7 +19,7 @@ public class BookstoreApplication {
 		SpringApplication.run(BookstoreApplication.class, args);
 	}
 
-	@Bean
+	/* @Bean
 	public CommandLineRunner bookDemo(BookRepository repository, CategoryRepository repository2,
 			AppUserRepository AppUserRepository) {
 		return (args) -> {
@@ -41,6 +41,6 @@ public class BookstoreApplication {
 			AppUserRepository.save(user1);
 			AppUserRepository.save(user2);
 		};
-	}
+	} */
 
 }

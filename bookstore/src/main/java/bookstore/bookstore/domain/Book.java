@@ -1,7 +1,10 @@
 package bookstore.bookstore.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,15 +13,22 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @NotEmpty(message="Kirjan nimi ei voi olla tyhjä.")
+    @Size(min=3, max=250)
     private String title;
+
     private String author;
+
+    @Column(name="publication_year")
     private Integer publicationYear;
     private String isbn;
     private Double price;
 
+    @JsonIgnoreProperties("books")
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "categoryid")
+    @JoinColumn(name = "category_id")
     private Category category;
 
     public Book() {
