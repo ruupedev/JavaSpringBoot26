@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
@@ -17,6 +17,10 @@ public class Category {
 
     public Category() {
 
+    }
+    
+    public Category(String name) {
+        this.name = name;
     }
 
     public void setCategoryid(Long categoryid) {
@@ -31,9 +35,6 @@ public class Category {
         this.books = books;
     }
 
-    public Category(String name) {
-        this.name = name;
-    }
 
     public Long getCategoryid() {
         return id;

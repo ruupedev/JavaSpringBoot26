@@ -10,8 +10,8 @@ CREATE TABLE book (
     title VARCHAR(150) NOT NULL,
     author VARCHAR(150) NOT NULL,
     publication_year INT,
-    --isbn VARCHAR(20),
-    --price DECIMAL(10,2),
+    isbn VARCHAR(20),
+    price DECIMAL(10,2),
 	category_id BIGINT REFERENCES category(id)
 );
 

@@ -25,26 +25,26 @@ private CategoryRepository categoryRepository;
 
 @Test
 public void findByTitleShouldReturnBook() {
-List<Book> books = bookRepository.findByTitle("Mökki");
+List<Book> books = bookRepository.findByTitle("Mökkimaailma");
 assertThat(books).hasSize(1);
-assertThat(books.get(0).getAuthor()).isEqualTo("Marison");
+assertThat(books.get(0).getAuthor()).isEqualTo("Marison Manse");
 }
 
-/* @Test
+@Test
 public void createNewBook() {
 Category category = new Category("Sarjis");
 categoryRepository.save(category);
 Book book = new Book("Mikki Hiiri", "Minni Hiiri", 2026, "123-asd-123", 12.00 ,category);
 bookRepository.save(book);
 assertThat(book.getId()).isNotNull();
-} */
+}
 
-/* @Test
+@Test
 public void deleteBook() {
-List<Book> books = bookRepository.findByAuthor("Minni Hiiri");
+List<Book> books = bookRepository.findByAuthor("Marison Manse");
 Book book = books.get(0);
 bookRepository.delete(book);
-List<Book> newBooks = bookRepository.findByAuthor("Minni Hiiri");
+List<Book> newBooks = bookRepository.findByAuthor("Marison Manse");
 assertThat(newBooks).hasSize(0);
-} */
+}
 }
