@@ -51,7 +51,7 @@ public class BookController {
     public String addBook(Model model) {
         model.addAttribute("book", new Book());
         model.addAttribute("categories", categoryRepository.findAll());
-        return "/addbook";
+        return "addbook";
     }
 
     @GetMapping("/edit/{id}")
