@@ -38,9 +38,9 @@ public class BookstoreApplication {
             repository.save(new Book("Animal Farm", "George Orwell", 1945, "2212343-5", 9.00, horror));
 
             // user/user
-            AppUser user1 = new AppUser("user", "$2a$10$8.UnVuG9HHgffUDAlk8qfOuVGkqRzgVymGe07xd00DMxs.B.uZbxW", "USER");
+            AppUser user1 = new AppUser("user", "$2y$10$HC8xDeoCoCdqLIxvB7/wcuxayZDWd2jUR3KC3RD/xy4laAmm4HluW", "USER");
             // admin/admin
-            AppUser user2 = new AppUser("admin", "$2a$10$GRLdNijSQMUvl/au9ofL.eDwmoohzzS7.rmNSJZ.0FxO/BTk76klW", "ADMIN");
+            AppUser user2 = new AppUser("admin", "$2y$10$uc.wLFZctuIz6SxT/UDCb.rjm5cHgsONJYKbzJ.DGxlEfx1K3FTua", "ADMIN");
             AppUserRepository.save(user1);
             AppUserRepository.save(user2);
         }
