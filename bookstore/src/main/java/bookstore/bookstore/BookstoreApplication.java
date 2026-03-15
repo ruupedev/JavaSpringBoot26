@@ -3,6 +3,7 @@ package bookstore.bookstore;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.security.autoconfigure.SecurityProperties.User;
 import org.springframework.context.annotation.Bean;
 
 import bookstore.bookstore.domain.AppUser;
@@ -19,11 +20,17 @@ public class BookstoreApplication {
 		SpringApplication.run(BookstoreApplication.class, args);
 	}
 
-	/* @Bean
+	@Bean
 	public CommandLineRunner bookDemo(BookRepository repository, CategoryRepository repository2,
 			AppUserRepository AppUserRepository) {
 		return (args) -> {
 
+				//Check if there is already user data in the database
+		if (AppUserRepository.count() == 0) {
+			// Create application user
+			AppUser user1 = new AppUser("user", "$2a$06$3jYRJrgKU5uo6", "USER");
+			AppUserRepository.save(user1);
+		} else {
 			Category horror = new Category("Horror");
 			Category mystery = new Category("Mystery");
 			Category thriller = new Category("Thriller");
@@ -40,7 +47,10 @@ public class BookstoreApplication {
 					"ADMIN");
 			AppUserRepository.save(user1);
 			AppUserRepository.save(user2);
+		}
+
+			
 		};
-	} */
+	}
 
 }
