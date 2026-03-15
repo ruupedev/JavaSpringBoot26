@@ -28,11 +28,13 @@
       <br />
       <td>
         Category:
-        <input
-          type="text"
-          placeholder="${book.category.name}"
-          th:field="*{category.name}"
-        />
+        <select th:field="*{category}">
+          <option
+            th:each="category: ${categories}"
+            th:value="${category.categoryid}"
+            th:text="${category.name}"
+          ></option>
+        </select>
       </td>
       <br />
       <td>
