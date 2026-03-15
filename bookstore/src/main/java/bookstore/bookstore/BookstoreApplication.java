@@ -27,27 +27,23 @@ public class BookstoreApplication {
 
 				//Check if there is already user data in the database
 		if (AppUserRepository.count() == 0) {
-			// Create application user
-			AppUser user1 = new AppUser("user", "$2a$06$3jYRJrgKU5uo6", "USER");
-			AppUserRepository.save(user1);
-		} else {
-			Category horror = new Category("Horror");
-			Category mystery = new Category("Mystery");
-			Category thriller = new Category("Thriller");
-			repository2.save(horror);
-			repository2.save(mystery);
-			repository2.save(thriller);
+            Category horror = new Category("Horror");
+            Category mystery = new Category("Mystery");
+            Category thriller = new Category("Thriller");
+            repository2.save(horror);
+            repository2.save(mystery);
+            repository2.save(thriller);
 
-			repository.save(new Book("A Farewell to Arms", "Ernest Hemingway", 1929, "1232323-21", 12.00, mystery));
-			repository.save(new Book("Animal Farm", "George Orwell", 1945, "2212343-5", 9.00, horror));
+            repository.save(new Book("A Farewell to Arms", "Ernest Hemingway", 1929, "1232323-21", 12.00, mystery));
+            repository.save(new Book("Animal Farm", "George Orwell", 1945, "2212343-5", 9.00, horror));
 
-			// Create users: admin/admin user/user
-			AppUser user1 = new AppUser("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
-			AppUser user2 = new AppUser("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C",
-					"ADMIN");
-			AppUserRepository.save(user1);
-			AppUserRepository.save(user2);
-		}
+            // user/user
+            AppUser user1 = new AppUser("user", "$2a$10$8.UnVuG9HHgffUDAlk8qfOuVGkqRzgVymGe07xd00DMxs.B.uZbxW", "USER");
+            // admin/admin
+            AppUser user2 = new AppUser("admin", "$2a$10$GRLdNijSQMUvl/au9ofL.eDwmoohzzS7.rmNSJZ.0FxO/BTk76klW", "ADMIN");
+            AppUserRepository.save(user1);
+            AppUserRepository.save(user2);
+        }
 
 			
 		};
