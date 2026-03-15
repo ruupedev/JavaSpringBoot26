@@ -27,7 +27,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(
                     authorize -> authorize
                         .anyRequest().authenticated())
-                        .httpBasic(Customizer.withDefaults())
+                        /* .httpBasic(Customizer.withDefaults()) */
                 .formLogin(formlogin -> formlogin
                         .loginPage("/login")
                         .defaultSuccessUrl("/booklist", true)
