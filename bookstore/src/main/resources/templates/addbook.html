@@ -1,36 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="/css/bootstrap.min.css"
+      th:href="@{/css/bootstrap.min.css}"
+    />
     <title>Add book</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <h2>Add Book</h2>
 
     <form th:action="@{/savebook}" th:object="${book}" method="post">
+      <td>Author: <input type="text" th:field="*{author}" /></td>
+      <br />
+      <td>Title: <input type="text" th:field="*{title}" /></td>
+      <br />
+      <td>ISBN: <input type="text" th:field="*{isbn}" /></td>
+      <br />
+      <td>Year: <input type="text" th:field="*{publicationYear}" /></td>
+      <br />
+      <td>Price: <input type="text" th:field="*{price}" /></td>
+      <br />
 
+      <td>
+        Category:
+        <select th:field="*{category}">
+          <option
+            th:each="category: ${categories}"
+            th:value="${category.categoryid}"
+            th:text="${category.name}"
+          ></option>
+        </select>
+      </td>
+      <br />
 
-        <td>Author: <input type="text" th:field="*{author}"></td><br />
-        <td>Title: <input type="text" th:field="*{title}"></td><br />
-        <td>ISBN: <input type="text" th:field="*{isbn}"></td><br />
-        <td>Year: <input type="text" th:field="*{publicationYear}"></td><br />
-        <td>Price: <input type="text" th:field="*{price}"></td><br />
-
-
-        <td>Category: <select th:field="*{category}">
-                <option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}">
-                </option>
-            </select></td><br />
-
-
-        <button type="submit" class="btn btn-success">Submit book</button>
-
+      <button type="submit" class="btn btn-success">Submit book</button>
     </form>
-
-</body>
-
+  </body>
 </html>
